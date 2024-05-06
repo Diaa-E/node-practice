@@ -64,3 +64,7 @@
 
     import defaultExport, { export1 } from "path/module.js"; 
     ```
+
+### NPM Scripts
+
+1. Some script names don't require ```npm run``` like ```npm start```
