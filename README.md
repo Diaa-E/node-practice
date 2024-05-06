@@ -18,9 +18,49 @@
 
 1. Import
     ```js
-    const objectName = require("path");
+    const objectName = require("path/module"); //.js is not required
 
     //OR
 
-    const { export1, export2 } = require("path");
+    const { export1, export2 } = require("path/module");
+    ```
+## ES Modules
+
+1. Export 
+    ```js
+    export default defaultExport;
+
+    //OR
+
+    export {
+        export1,
+        export2
+    }
+
+    //OR
+
+    export const export1;
+    export const export2;
+
+    //OR
+
+    export default defaultExport;
+    export const export1;
+    ```
+
+1. Import
+    ```js
+    import defaultExport from "path/module.js"; //.js is required
+
+    //OR
+
+    import { export1, export2 } from "path/module.js";
+
+    //OR
+
+    import { export1 as alias1 } from "path/module.js"; 
+
+    //OR
+
+    import defaultExport, { export1 } from "path/module.js"; 
     ```

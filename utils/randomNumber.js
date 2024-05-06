@@ -8,7 +8,7 @@ function generateRandomNumberInc(upper)
     return Math.floor(Math.random() * upper + 1);
 }
 
-module.exports = {
+export {
     generateRandomNumber,
     generateRandomNumberInc
 }

@@ -1,4 +1,4 @@
-const { generateRandomNumber, generateRandomNumberInc } = require("./utils/randomNumber");
+import { generateRandomNumber, generateRandomNumberInc } from "./utils/randomNumber.js";
 
 console.log("hello world");
 
