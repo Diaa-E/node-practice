@@ -1,46 +1,56 @@
 import { createServer } from "node:http";
+import * as fs from "node:fs/promises";
+import * as url from "node:url";
+import * as path from "node:path";
+
+//get current directory
+//available by default in CJS but not in ESM
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT;
 const HOSTNAME = "127.0.0.1";
 
-const server = createServer((req, res) => {
+const server = createServer(async (req, res) => {
 
-    try
-    {
-        if (req.method !== "GET")
-        {
+    let filePath;
+    let status;
+
+    try {
+        if (req.method !== "GET") {
             throw new Error(`Method ${req.method} is not allowed`);
         }
     }
-    catch (error)
-    {
+    catch (error) {
         console.log(error);
-        res.writeHead(500, { "Content-Type": "text/html" });
-        res.end("<h1>Error 500</h1>");
-        return;
+        filePath = path.join(__dirname, "public", "error.html");
+        status = 500;
     }
 
-    switch (req.url)
-    {
-        case "/": 
-            res.writeHead(200, { "Content-Type": "text/html" });
-            res.end("<h1>Home</h1>");
+    switch (req.url) {
+        case "/":
+            filePath = path.join(__dirname, "public", "index.html");
+            status = 200;
             break;
 
-        case "/about": 
-            res.writeHead(200, { "Content-Type": "text/html" });
-            res.end("<h1>About</h1>");
+        case "/about":
+            filePath = path.join(__dirname, "public", "about.html");
+            status = 200;
             break;
 
-        case "/contact": 
-        res.writeHead(200, { "Content-Type": "text/html" });
-            res.end("<h1>Contact</h1>");
+        case "/contact":
+            filePath = path.join(__dirname, "public", "contact.html");
+            status = 200;
             break;
 
-        default: 
-            res.writeHead(404, { "Content-Type": "text/html" });
-            res.end("<h1>Error 404</h1>");
+        default:
+            filePath = path.join(__dirname, "public", "error.html");
+            status = 404;
     }
+    const data = await fs.readFile(filePath);
+    res.writeHead(status, "Content-Type", "text/html");
+    res.write(data);
+    res.end();
 });
 
 server.listen(PORT, HOSTNAME, () => console.log(`server running at http://${HOSTNAME}:${PORT}/`));
