@@ -5,6 +5,21 @@ const HOSTNAME = "127.0.0.1";
 
 const server = createServer((req, res) => {
 
+    try
+    {
+        if (req.method !== "GET")
+        {
+            throw new Error(`Method ${req.method} is not allowed`);
+        }
+    }
+    catch (error)
+    {
+        console.log(error);
+        res.writeHead(500, { "Content-Type": "text/html" });
+        res.end("<h1>Error 500</h1>");
+        return;
+    }
+
     switch (req.url)
     {
         case "/": 
