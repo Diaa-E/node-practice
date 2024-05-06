@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon --env-file=.env server.js"
   },
   "author": "diaa e.",
   "license": "MIT",

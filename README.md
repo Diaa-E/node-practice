@@ -65,6 +65,11 @@
     import defaultExport, { export1 } from "path/module.js"; 
     ```
 
-### NPM Scripts
+## NPM Scripts
 
 1. Some script names don't require ```npm run``` like ```npm start```
+
+## Environment variables
+
+1. .env file that contains any hidden information that shouldn't be in a repository i.e API keys.
+1. All envrironment variables defined in the .env file are available in the ```process.env.VARIABLE_NAME```.
