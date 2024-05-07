@@ -26,6 +26,13 @@
     ```
 ## ES Modules
 
+1. To use ES Modules, either add use .mjs as js file extenstion or add to package.json:
+    ```json
+    {
+        "type": "module"
+    }
+    ```
+
 1. Export 
     ```js
     export default defaultExport;
