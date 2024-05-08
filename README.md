@@ -6,6 +6,7 @@
 1. [NPM Scripts](#npm-scripts)
 1. [Environment Variables](#environment-variables)
 1. [File System Module](#file-system-module)
+1. [Path Module](#path-module)
 
 ## Global Objects 
 
@@ -92,3 +93,7 @@
 
 1. File paths are absolute (starting from root directory)
 1. many function from the callback version module have a sync version, they are the same function but are blocking.
+
+## Path Module
+
+1. ```path.join()``` not ```[...].join("/")``` because not all systems use the same delimeters, path module uses the one fit for the current working system.
