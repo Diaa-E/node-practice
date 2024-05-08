@@ -7,6 +7,7 @@
 1. [Environment Variables](#environment-variables)
 1. [File System Module](#file-system-module)
 1. [Path Module](#path-module)
+1. [Global Process Object](#global-process-object)
 
 ## Global Objects 
 
@@ -97,3 +98,8 @@
 ## Path Module
 
 1. ```path.join()``` not ```[...].join("/")``` because not all systems use the same delimeters, path module uses the one fit for the current working system.
+
+## Global Process Object
+
+1. ```process.argv``` contains by default 2 arguments, node location and current file location. Arguments can be added to the array by passing them while running the file with node ex: ```node dir/file.js -flag``` -flag is added to the end of the argv array. this is useful for creating CLIs.
+1. ```process.env``` comes with some environment variables about the running computer beside what is added in the loaded .env file, ex: ```process.env.LOGNAME``` returns the current logged in user.
