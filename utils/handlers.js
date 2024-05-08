@@ -69,3 +69,5 @@ export function returnNotFound(req, res)
 //     mode: "no-cors",
 // })
 // .then(response => console.log(response));
+
+// or use httpie, it's local.
