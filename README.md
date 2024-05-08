@@ -1,5 +1,12 @@
 # Node JS Practice Notes
 
+1. [Global Objects](#global-objects)
+1. [Common JS](#common-js)
+1. [ES Modules](#es-modules)
+1. [NPM Scripts](#npm-scripts)
+1. [Environment Variables](#environment-variables)
+1. [File System Module](#file-system-module)
+
 ## Global Objects 
 
 1. window ❌ -> global ✅
@@ -80,3 +87,8 @@
 
 1. .env file that contains any hidden information that shouldn't be in a repository i.e API keys.
 1. All envrironment variables defined in the .env file are available in the ```process.env.VARIABLE_NAME```.
+
+## File System Module
+
+1. File paths are absolute (starting from root directory)
+1. many function from the callback version module have a sync version, they are the same function but are blocking.
